@@ -6,4 +6,8 @@ from . import models
 
 @admin.register(models.User)
 class CustomUserAdmin(admin.ModelAdmin):
-    pass
+
+    """Custom User Admin"""
+
+    list_display = ("username", "email", "date_joined", "admin")
+    list_filter = ("date_joined", "admin")
