@@ -24,3 +24,9 @@ class ItemAdmin(admin.ModelAdmin):
 class PlaceAdmin(admin.ModelAdmin):
 
     pass
+
+
+@admin.register(models.Photo)
+class PhotoAdmin(admin.ModelAdmin):
+
+    pass

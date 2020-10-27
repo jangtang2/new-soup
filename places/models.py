@@ -22,21 +22,32 @@ class Amenity(AbstractItem):
 
     """Amenity Model Def"""
 
-    pass
+    class Meta:
+        verbose_name_plural = "Amenities"
 
 
 class Facility(AbstractItem):
 
     """Facility Model Def"""
 
-    pass
+    class Meta:
+        verbose_name_plural = "Facilities"
 
 
 class ETC(AbstractItem):
 
     """ETC Model Def"""
 
-    pass
+    class Meta:
+        verbose_name = "ETC"
+
+
+class Photo(core_models.TimeStampedModel):
+
+    """Photo Model Def"""
+
+    file = models.ImageField()
+    place = models.ForeignKey("place", on_delete=models.CASCADE)
 
 
 class Place(core_models.TimeStampedModel):
@@ -51,9 +62,9 @@ class Place(core_models.TimeStampedModel):
     toilets = models.IntegerField()
     showerbooths = models.IntegerField()
     booklinks = models.URLField()
-    amenities = models.ManyToManyField(Amenity)
-    facilities = models.ManyToManyField(Facility)
-    etcs = models.ManyToManyField(ETC)
+    amenities = models.ManyToManyField("Amenity", blank=True)
+    facilities = models.ManyToManyField("Facility", blank=True)
+    etcs = models.ManyToManyField("ETC", blank=True)
 
     def __str__(self):
         return self.name
