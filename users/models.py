@@ -6,4 +6,6 @@ from django.db import models
 
 class User(AbstractUser):
 
-    bio = models.TextField(default="")
+    """ Custom User Model"""
+
+    photo = models.ImageField(null=True, blank=True)
