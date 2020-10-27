@@ -16,5 +16,4 @@ class Place(core_models.TimeStampedModel):
     address = models.CharField(max_length=140)
     toilets = models.IntegerField()
     showerbooths = models.IntegerField()
-    operdays = models.DateField()
     booklinks = models.URLField()
