@@ -23,7 +23,13 @@ class ItemAdmin(admin.ModelAdmin):
 @admin.register(models.Place)
 class PlaceAdmin(admin.ModelAdmin):
 
-    pass
+    list_display = (
+        "name",
+        "city",
+        "booklinks",
+    )
+    list_filter = ("city",)
+    search_fields = ("=city", "^name")
 
 
 @admin.register(models.Photo)
