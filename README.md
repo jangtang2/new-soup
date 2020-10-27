@@ -1,3 +1,3 @@
 #soup
 
-camping place info wed
+camping place info web
