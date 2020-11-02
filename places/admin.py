@@ -59,6 +59,7 @@ class PlaceAdmin(admin.ModelAdmin):
         "name",
         "city",
         "booklinks",
+        "total_rating",
     )
 
     list_filter = ("city",)
