@@ -8,5 +8,5 @@ class User(AbstractUser):
 
     """ Custom User Model"""
 
-    photo = models.ImageField(blank=True)
+    photo = models.ImageField(upload_to="user_photos", blank=True)
     admin = models.BooleanField(default=False)
