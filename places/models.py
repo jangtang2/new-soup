@@ -47,7 +47,7 @@ class Photo(core_models.TimeStampedModel):
     """Photo Model Def"""
 
     file = models.ImageField(upload_to="place_photos")
-    place = models.ForeignKey("place", on_delete=models.CASCADE)
+    place = models.ForeignKey("place", related_name="photos", on_delete=models.CASCADE)
 
 
 class Place(core_models.TimeStampedModel):
