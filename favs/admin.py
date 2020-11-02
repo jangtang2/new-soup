@@ -5,4 +5,4 @@ from . import models
 @admin.register(models.Fav)
 class FavAdmin(admin.ModelAdmin):
 
-    pass
+    list_display = ("name", "user", "count_places")
