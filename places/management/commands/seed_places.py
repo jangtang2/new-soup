@@ -1,3 +1,4 @@
+import random
 from django.core.management.base import BaseCommand
 from django_seed import Seed
 from places import models as place_models
@@ -20,6 +21,11 @@ class Command(BaseCommand):
         seeder.add_entity(
             place_models.Place,
             number,
+            {
+                "name": lambda x: seeder.faker.address(),
+                "toilets": lambda x: random.randint(0, 10),
+                "showerbooths": lambda x: random.randint(0, 10),
+            },
         )
         seeder.execute()
         self.stdout.write(self.style.SUCCESS("places are created"))
