@@ -15,7 +15,8 @@ class Command(BaseCommand):
             "물놀이장",
             "운동시설",
             "마트, 편의점",
-            "놀이터" "운동장",
+            "놀이터",
+            "운동장",
             "트램폴린",
         ]
         for a in amenities:
