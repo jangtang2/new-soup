@@ -6,3 +6,5 @@ from . import models
 class FavAdmin(admin.ModelAdmin):
 
     list_display = ("name", "user", "count_places")
+
+    filter_horizontal = ("places",)
