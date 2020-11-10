@@ -30,11 +30,28 @@ class Command(BaseCommand):
         )
         created_photos = seeder.execute()
         created_clean = flatten(list(created_photos.values()))
+
+        amenities = place_models.Amenity.objects.all()
+        facilities = place_models.Facility.objects.all()
+        etcs = place_models.ETC.objects.all()
         for pk in created_clean:
-            place = place_models.Place.objects.get(pk=pk)
-            for i in range(3, random.randint(5, 10)):
+            placet = place_models.Place.objects.get(pk=pk)
+            for i in range(3, random.randint(5, 15)):
                 place_models.Photo.objects.create(
-                    place=place,
+                    place=placet,
                     file=f"place_photo/{random.randint(1, 31)}.jpg",
                 )
+            for a in amenities:
+                magic_number = random.randint(0, 15)
+                if magic_number % 2 == 0:
+                    placet.amenities.add(a)
+            for f in facilities:
+                magic_number = random.randint(0, 15)
+                if magic_number % 2 == 0:
+                    placet.facilities.add(f)
+            for e in etcs:
+                magic_number = random.randint(0, 15)
+                if magic_number % 2 == 0:
+                    placet.etcs.add(e)
+
         self.stdout.write(self.style.SUCCESS("places are created"))
