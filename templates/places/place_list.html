@@ -6,8 +6,12 @@
 
 {% block content %}
 
-    {% for place in object_list %}
-        <h1>{{place.name}}</h1>
+    {{now}}
+
+    {% for place in places %}
+        <h3>
+            <a href="{% url "places:detail" place.pk %}">{{place.name}}</a>
+        </h3>
     {% endfor %}
 
     <h5> 
